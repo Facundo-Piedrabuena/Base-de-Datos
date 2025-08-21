@@ -1,0 +1,197 @@
+2da clase. Primer capítulo del libro.
+-Usuarios y trabajadores de bases de datos:
+•	Actores de la escena.
+o	Personas cuyos trabajos implican el uso diario de una base de datos.
+•	Trabajadores entre bambalinas.
+-Actores de la escena:
+•	Administradores de bases de datos:
+o	Controlar acceso autorizado a la bd.
+o	Coordinar y monitorizar el uso de la bd
+o	Adquirir y gestionar recursos de software y hardware necesarios
+o	Resolver problemas de seguridad, como brechas o accesos no autorizados
+o	Atender a problemas de rendimiento, como tiempos de respuesta pobres
+o	En grandes org, el DBA puede trabajar con un equipo que lo asista en estas tareas.
+•	Diseñadores de las bd:
+o	Identificar los datos que se almacenaran en la bd
+o	Las estructuras apropiadas para representar y almacenar esos datos
+o	Detalles: 
+	Tareas previstas a la implementación de la bd
+	Necesitan conocer todos los requisitos de los usuarios.
+	Desarrollos las bd en grupos.
+•	Usuarios finales:
+o	Personas que utilizan la bd para realizar consultas, actualizaciones o generar informes. La bd existe principalmente para servir a sus necesidades.
+o	Tipos de usuarios finales:
+	Usuarios casuales: administradores de nivel medio o alto
+	Usuarios principiantes o paramétricos: tareas rutinarias y bien definidas
+	Usuarios sofisticados: ing, científicos, analistas, etc.
+	Usuarios independientes: crean y gestionan sus propias bd personales
+•	Analista de sistemas y programadores de aplicaciones (ing de software):
+o	Analistas de sistemas:
+o	Programadores de aplicación:
+o	Ambos perfiles deben estar familiarizados con las capacidades y funciones del SGBD para realizar correctamente su trabajo.
+-TRABAJADORES ENTRE BAMBALINAS
+•	Diseñadores e implementadores de sistemas DBMS
+o	Son los especialistas responsables del diseño y desarrollo del so
+¿Qué hacen?
+o	Diseña la arquitectura interna del DBMS.
+o	Implementan funciones claves como el almacenamiento de datos, recuperación, concurrencia y control de transacciones.
+o	Mejoran el rendimiento y la escalabilidad del sistema.
+o	Corrigen errores y desarrollan nuevas versiones del sistema.
+•	Desarrolladores de herramientas
+o	Son profesionales especializados en el diseño e implementación de herramientas complementarias que amplían las capacidades del DBMS. Estas herramientas no dormán parte del núcleo del sistema, pero lo potencian y facilitan tareas específicas.
+¿Qué hacen?
+o	Diseñan paquetes opcionales que se pueden adquirir por separado.
+o	Desarrollan aplicaciones auxiliares que mejoran la experiencia de los usuarios y administradores.
+•	Operadores y personal de mantenimiento (personal de administración del sistema):
+o	Son los responsables de ejecutar y mantener el entorno hardware y software en el que funciona el sistema de bd.
+Responsabilidades principales:
+o	Asegurar el funcionamiento continuo del servidor.
+o	Supervisar el rendimiento del sistema
+o	Realizar copias de seguridad y recuperar ante fallos.
+o	Coordinar tareas de manteniendo preventivo y correctivo.
+o	Garantizar la actualización de software del sistema y del DBMS.
+-VENTAHAS DE UTILIZAR UNA METODOLOGIA DBMS
+•	Control de la redundancia:
+o	Procesamiento tradicional con archivos:
+	Cada grupo de usuarios mantiene sus propios archivos.
+	Esto genera redundancia, ya que los mismos datos se almacenan varias veces.
+o	Problemas de la redundancia:
+	Duplicación de esfuerzo.
+	Derroche de espacio de almacenamiento.
+	Posible incoherencia entre los datos.
+o	Metodología con DBMS:
+	Se integran las vistas de todos los usuarios en un diseño unificado.
+	Cada dato lógico (ej. Nombre o fecha de nacimiento) se almacenas idealmente una sola vez.
+	Se garantiza la coherencia y se ahorra espacio.
+o	Nota: En algunos casos, se utiliza redundancia controlada para mejorar el rendimiento de las consultas.
+•	Restricción del acceso no autorizado:
+o	Entorno multiusuario:
+	Cuando muchos usuarios acceden a una base de datos compartida, no todos deben tener acceso completo a toda la información.
+o	Seguridad y autorización de un DBMS:
+	El DBMS incluye un subsistema de seguridad y autorización.
+	El DBA (administrados de bd):
+•	Crea cuentas de usuario.
+•	Define restricciones de acceso según roles o permisos.
+o	El DBMS implementa automáticamente esas restricciones para proteger los datos y evitar accesos indebidos.
+•	Almacenamiento persistente para los objetos del programa:
+o	Propósito:
+	Las bases de datos permiten guardar de forma persistente objetos y estructuras de datos utilizados en los programas.
+o	Orientación a objetos:
+	Esta necesidad es una de las razones clave del surgimiento de los DBMS orientados a objetos.
+o	Compatibilidad con bd relacionales:
+	Se utilizan herramientas ORM (objec-Relational Mapping) para mapear objetos del programa a tablas relacionales (Hibernate, Entity Framework, SQLAlchemy).
+•	Estructuras de almacenamiento para un procesamiento eficaz de consultas:
+o	Ejecución eficiente:
+	El DBMS debe ser capaz de ejecutar consultas y actualizaciones eficientemente, aun cuando los datos se almacenan en disco.
+o	Índices:
+	Se utilizan archivos auxiliares llamados índices para acelerar la búsqueda de registros específicos.
+	Los índices permiten acceder más rápidamente a los datos deseados sin tener que recorrer todo el archivo.
+o	Optimización de consultas:
+	El módulo de optimización del DBMS selecciona el plan más eficiente de ejecución para cada consulta.
+	Esto se basa en las estructuras de almacenamiento existentes (como los índices).
+o	Rol del DBA:
+	El DBA es responsable de decidir que índices crear y mantener, como parte del diseño físico de la bd.
+•	Copia de seguridad y recuperación:
+o	Objetivo:
+	Asegurar la integridad de los datos y la continuidad operativo del sistema.
+o	Fallos posibles:
+	Un DBMS debe estar preparado para recuperarse ante fallos del hardware o del software.
+o	Subsistema de respaldo y recuperación:
+	Es el encargado de garantizar que los datos puedan restaurarse correctamente tras un error.
+o	Técnicas utilizadas:
+	Rollback (reversión): Deshace operaciones incompletas o fallidas.
+	Bachups (respaldos): Copias de seguridad periódicas para restaurar el sistema a un estado consistente.
+•	Suministro de varias interfaces de usuario:
+o	Un DBMS Moderno ofrece diferentes formas de interactuar con la base de datos, según el perfil del usuario.
+o	Tipos de interfaces comunes:
+	Interfaces graficas (GUI): intuitivas, basadas en menis y formularios (para usuarios no técnicos).
+	Línea de comandos: Para administradores o usuarios avanzados.
+	Lenguaje de consulta (SQL): Para usuarios que necesitas personalizar consultas.
+	Interfaces embebidas: Usadas por programadores dentro de aplicaciones.
+	Interfaces web o móviles: Para acceso remoto o desde distintas plataformas.
+o	Ventaja clave: 
+	Permite que usuarios con diferentes niveles de conocimiento técnico trabajen con la base de datos de forma eficiente y cómoda.
+•	Representación de relaciones complejas entre datos:
+o	Un DBMS permite modelar y gestionar relaciones complejas entre distintos conjuntos de datos de forma estructurada.
+o	Capacidades clave:
+	Definir…
+	Representar…
+	Mantener…
+	Actualizar…
+•	Implementación de las restricciones de integridad:
+o	¿Qué son las restricciones de integridad?
+	
+o	Tipos comunes de restricciones:
+	
+o	¿Qué hace el DBMS?
+	
+o	Ventaja principal:
+•	¿Cuándo no usar un DBMS?
+o	Costo: El uso de un DBMS implica gastos asociados al software, hardware y mantenimiento. Si la solución es simple y no justifica estos costos, conviene optar por otras alternativas más económicas.
+o	Simpleza: Para aplicaciones muy sencillas (una agenda, una app de notas, etc), un DBMS puede ser innecesariamente complejo.
+o	Desempeño: En sistemas que requieren tiempos de respuesta muy rápidos (como sistemas embebidos o de tiempo real), el uso de un DBMS puede afectar el rendimiento. En estos casos, estructuras de datos en memoria o bases de datos especializadas pueden ser más adecuadas.
+o	Monousuario: Si la aplicación esta pensada para un solo usuario y no necesita acceso concurrente, las ventajas de un DBMS multiusuario no se aprovechan. Puede usarse una sola solución más simple.
+o	Almacenamiento: Cuando se dispone de pocos recursos de almacenamiento (por ejemplo, en dispositivos IoT), un DBMS puede ser demasiado pesado. Es mejor usar soluciones ligeras que no consuman tanto espacio.
+
+3ra Clase – Segundo capítulo del libro.
+-Conceptos y arquitectura de los sistemas de bases de datos:
+•	Modelo de Datos:
+o	¿Qué es un modelo?:
+	Un modelo es una representación simplificada o simbólica de una realidad.
+	Se utilizan para comprender, analizar, comunicar o predecir el comportamiento de un sistema.
+	Los modelos nos ayudan a:
+•	Abstraer lo esencial
+•	Comunicar ideas
+•	Diseñar soluciones
+o	Modelo de Datos:
+	Un modelo de datos es un conjunto que permiten describir la estructura, relaciones, restricciones y operaciones posibles sobre los datos de un sistema de la bd.
+	Nos permiten: 
+•	Diseñar bases de datos.
+•	Comunicar requisitos entre técnicos y usuarios.
+•	Guiar la implementación en un SGBD.
+•	Categorías de modelos de datos:
+o	Conceptuales:
+	Nivel más alto de abstracción.
+	Se usa para:
+•	Capturar los requisitos del usuario.
+•	Diseñar el esquema conceptual.
+	Ejemplo: Modelo Entidad-Relación (E-R).
+o	Representativos:
+	Más cercanos al nivel de implementación.
+	Ejemplos:
+•	Modelo relacional.
+•	Modelo de red
+•	Modelo jerárquico
+•	Modelo orientado a objetos (más cercana a las conceptuales)
+o	Físicos:
+	Nivel más bajo de atracción.
+	Detalla cómo se almacenan los datos en el hardware.
+	Incluye estructuras como:
+•	Archivos
+•	Índices
+•	Representaciones en disco
+o	Auto descriptivos:
+	Los datos incluyen su propia descripción (esquema).
+	Contraste con modelos tradicionales donde el esquema está separado de los datos.
+•	Esquemas, instancias y estados de la base de datos:
+o	 Esquema:
+	Es la estructura lógica de la bd.
+	Define como se organizan los datos, tablas, atributos, tipos de datos, restricciones.
+	Se define una vez y rara vez cambia.
+o	Diagrama del esquema:
+	Es la representación gráfica del esquema de la bd.
+	Muestra algunos aspectos de un esquema, como los nombres de los tipos de registros t los elementos de datos, y algunos tipos de restricciones.
+	No es el esquema en sí, sino una forma de visualizarlo.
+o	Estado de la BD: 
+	Conjunto de datos almacenados en la base de datos de un momento dado.
+	Representa la “fotografía” de la bd en ese instante.
+	Cambia frecuentemente con cada inserción, eliminación o modificación,
+	Un estado valido cumple con todas las restricciones definidas por el esquema
+•	Arquitectura de tres esquemas:
+o	¿Qué es?:
+	Es un modelo propuesto por el comité ANSI/SPARC para organizar la arquitectura de un sistema de bd, separando niveles de abstracción.
+o	Objetivos:
+	Independencia de los datos.
+	Flexibilidad
+	Separación entre diseño y conceptual
+
